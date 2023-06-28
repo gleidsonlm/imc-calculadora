@@ -89,6 +89,11 @@ button:active {
   box-shadow: 2.5em var(--color-main-bg);
 }
 
+div#divButtonReset {
+  display: flex;
+  justify-content: center;
+}
+
 ul {
   list-style-type: none;
   padding: 0;
