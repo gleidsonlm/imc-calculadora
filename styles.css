@@ -1,0 +1,123 @@
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap");
+
+:root {
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Roboto Slab", serif;
+  --color-main-bg: #f2f2f2;
+  --color-section-bg: #d0e1f9;
+  --color-text: #595959;
+  --color-heading: #23395d;
+  --color-button: #007bff;
+  --color-log: rgb(46, 204, 113);
+  --color-notice: rgb(241, 196, 15);
+  --color-warning: rgb(243, 156, 18);
+  --color-alert: rgb(231, 76, 60);
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-main-bg);
+  color: var(--color-text);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+h1,
+h2 {
+  font-family: var(--font-secondary);
+  color: var(--color-heading);
+}
+
+section {
+  background-color: var(--color-section-bg);
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+section#calc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  border: 1px solid var(--color-text);
+  width: fit-content;
+  box-shadow: 0.25em 0.25em var(--color-main-bg);
+}
+
+form fieldset {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+}
+
+input,
+button {
+  padding: 0.25em;
+  margin: 0.25em;
+  border: none;
+  border-radius: 1em;
+  min-width: 5em;
+  width: fit-content;
+}
+input {
+  min-width: 5em;
+  box-shadow: 0.25em 0.25em var(--color-buttonbg);
+}
+button {
+  color: white;
+  background-color: var(--color-button);
+  box-shadow: 0.25em 0.25em var(--color-main-bg);
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+  box-shadow: 2.5em var(--color-main-bg);
+}
+
+button:active {
+  box-shadow: 2.5em var(--color-main-bg);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.25em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.log {
+  background-color: var(--color-log);
+  color: white;
+}
+
+.notice {
+  background-color: var(--color-notice);
+  color: white;
+}
+
+.warning {
+  background-color: var(--color-warning);
+  color: white;
+}
+
+.alert {
+  background-color: var(--color-alert);
+  color: white;
+}

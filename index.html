@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="imc"></header>
+    <main>
+        <section id="intro">
+            <h1 class="title">Calculadora</h1>
+            <p>IMC é a sigla para <a href="https://pt.wikipedia.org/wiki/%C3%8Dndice_de_massa_corporal">Índice de Massa Corporal</a>, parâmetro adotado pela <a href="https://www.who.int/pt">Organização Mundial de Saúde (OMS)</a> para calcular o peso ideal de cada pessoa.</p>
+        </section>
+        <section id="calc" class="">
+            <!-- Começa um fieldset para um formulário com dois inputs para peso em KG e altura em M -->
+            <form id="formCalc">
+                <fieldset>
+                    <label for="peso">1. Seu Peso (em kilogramas):</label>
+                    <input type="number" step="any" name="peso" id="peso" placeholder="Ex: 75" maxlength="3"required>
+                </fieldset>
+                <fieldset>
+                    <label for="altura">2. Sua Altura (em metros):</label>
+                    <input type="number" step="any" name="altura" id="altura" placeholder="Ex: 1.75" maxlength="5"required>
+                </fieldset>
+                <!-- Botão com função em JS para calcular o IMC -->
+                <fieldset>
+                    <label for="calcular">3. IMC = Peso / ( Altura^2 )</label>
+                    <button type="submit" id="calcular">Calcular</button> 
+                </fieldset>
+            </form>
+        </section>
+        <section id="result" class="hidden">
+            <h2>Seu IMC</h2>
+            <p>Seu IMC é igual a <strong id="imcElement"></strong>. De acordo com a classificação da OMS, <span id="imcClassElement"></span>, já que o peso ideal de uma pessoa com <span id="suaAltura"></span> metro(s) estaria entre <span id="pesoIdealMin"></span> e <span id="pesoIdealMax"></span> kilos.</p>
+            <p>É importante notar que o IMC não distingue entre massa muscular e massa gorda, o que significa que pessoas muito musculosas podem ter um IMC elevado, mas não necessariamente têm excesso de gordura corporal.</p>
+            <p>Além disso, o IMC pode não ser um indicador preciso de saúde para todos os grupos étnicos. Para um diagnóstico e orientação precisos sobre o peso, é recomendado procurar um profissional de saúde.</p>
+            <!-- Calc again is a button to reload the page -->
+            <div id="divButtonReset"><button id="buttonReset" type="reset" title="Calcular novamente">Calcular IMC</button></div>
+        </section>
+        <section id="class">
+            <h2>IMC e Classificação</h2>
+            <p>O Índice de Massa Corporal (IMC) é uma medida usada para avaliar se uma pessoa está dentro de um peso saudável em relação à sua altura. Os índices do IMC são classificados da seguinte maneira, de acordo com a Organização Mundial da Saúde:</p>
+            <ul class="list-disc list-inside">
+                <li class="notice">Abaixo do peso: IMC menor que 18,5</li>
+                <li class="log">Peso normal: IMC entre 18,5 e 24,9</li>
+                <li class="notice">Sobrepeso: IMC entre 25 e 29,9</li>
+                <li class="warning">Obesidade Grau I: IMC entre 30 e 34,9</li>
+                <li class="alert">Obesidade Grau II: IMC entre 35 e 39,9</li>
+                <li class="alert">Obesidade Grau III: IMC igual ou maior que 40</li>
+            </ul>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="index.js"></script>
+</body>
+</html>
