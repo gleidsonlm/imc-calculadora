@@ -34,16 +34,13 @@ h2 {
 }
 
 section {
-  background-color: var(--color-section-bg);
-  margin: 1em;
-  padding: 1em;
-  border-radius: 1em;
-}
-
-section#calc {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: var(--color-section-bg);
 }
 
 form {
@@ -52,11 +49,17 @@ form {
   box-shadow: 0.25em 0.25em var(--color-main-bg);
 }
 
-form fieldset {
+fieldset {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  border: none;
+}
+
+.fieldsetRadio {
+  display: flex;
+  flex-direction: column;
   border: none;
 }
 
@@ -68,10 +71,27 @@ button {
   border-radius: 1em;
   min-width: 5em;
   width: fit-content;
+  font-size: 1.2em;
 }
-input {
-  box-shadow: 0.25em 0.25em var(--color-buttonbg);
+
+input[type="number"] {
+  box-shadow: 0.25em 0.25em var(--color-main-bg);
 }
+
+input[type="radio"] {
+  min-width: 0em;
+}
+
+input#peso,
+input#altura {
+  width: 5em;
+}
+
+input#peso::after,
+input#altura::after {
+  content: "kg";
+}
+
 button {
   color: white;
   background-color: var(--color-button);
@@ -80,7 +100,6 @@ button {
   cursor: pointer;
   text-decoration: none;
   transition: box-shadow 0.3s ease-in-out;
-  font-size: 1.2em;
 }
 
 button:hover {
@@ -91,7 +110,8 @@ button:active {
   box-shadow: 2.5em var(--color-main-bg);
 }
 
-div#divButtonReset {
+.fieldsetButton,
+#divButtonReset {
   display: flex;
   justify-content: center;
 }
@@ -120,6 +140,8 @@ li {
   font-weight: bold;
   color: var(--color-black);
   font-shadow: 1em var(--color-white);
+  min-width: fit-content;
+  max-width: 24em;
 }
 
 .log {

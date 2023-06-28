@@ -8,7 +8,14 @@ function calcularIMC(event) {
     event.preventDefault();
     const peso = document.getElementById("peso").value;
     const altura = document.getElementById("altura").value;
-    const imc = peso / (altura * altura);
+
+    let imc;
+    if (document.getElementById("imc1").checked) {
+        imc = peso / (altura * altura);
+    } else if (document.getElementById("imc2").checked) {
+        imc = (1.3 * peso) / Math.pow(altura, 2.5);
+    }
+    
     const imcFixed = imc.toFixed(2);
     const imcElement = document.getElementById("imcElement");
     imcElement.innerText = imcFixed;
