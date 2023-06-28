@@ -107,22 +107,29 @@ li {
   display: none !important;
 }
 
+.log,
+.notice,
+.warning,
+.alert {
+  padding: 0.25em;
+  border-radius: 1em;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
 .log {
   background-color: var(--color-log);
-  color: white;
 }
 
 .notice {
   background-color: var(--color-notice);
-  color: white;
 }
 
 .warning {
   background-color: var(--color-warning);
-  color: white;
 }
 
 .alert {
   background-color: var(--color-alert);
-  color: white;
 }

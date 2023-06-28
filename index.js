@@ -61,6 +61,7 @@ function decorateClassificationBackground(imc) {
     calcularPesoIdeal()
 }
 
+// calcularPesoIdeal function receives the "altura" value and calculates the ideal BMI
 function calcularPesoIdeal() {
     const altura = document.getElementById("altura").value;
     const elementoSuaAltura = document.getElementById("suaAltura");
@@ -70,10 +71,10 @@ function calcularPesoIdeal() {
     const pesoIdealMax = 24.9 * (altura * altura);
     
     const elementoPesoIdealMin = document.getElementById("pesoIdealMin");
-    elementoPesoIdealMin.innerText = pesoIdealMin.toFixed(0);
+    elementoPesoIdealMin.innerText = Math.floor(pesoIdealMin);
     
     const elementoPesoIdealMax = document.getElementById("pesoIdealMax");
-    elementoPesoIdealMax.innerText = pesoIdealMax.toFixed(0);
+    elementoPesoIdealMax.innerText = Math.floor(pesoIdealMax);
 
     toggleResult()
 }

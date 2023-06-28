@@ -14,7 +14,6 @@
             <p>IMC é a sigla para <a href="https://pt.wikipedia.org/wiki/%C3%8Dndice_de_massa_corporal">Índice de Massa Corporal</a>, parâmetro adotado pela <a href="https://www.who.int/pt">Organização Mundial de Saúde (OMS)</a> para calcular o peso ideal de cada pessoa.</p>
         </section>
         <section id="calc" class="">
-            <!-- Começa um fieldset para um formulário com dois inputs para peso em KG e altura em M -->
             <form id="formCalc">
                 <fieldset>
                     <label for="peso">1. Seu Peso (em kilogramas):</label>
@@ -24,7 +23,6 @@
                     <label for="altura">2. Sua Altura (em metros):</label>
                     <input type="number" step="any" name="altura" id="altura" placeholder="Ex: 1.75" maxlength="5"required>
                 </fieldset>
-                <!-- Botão com função em JS para calcular o IMC -->
                 <fieldset>
                     <label for="calcular">3. IMC = Peso / ( Altura^2 )</label>
                     <button type="submit" id="calcular">Calcular</button> 
@@ -33,10 +31,9 @@
         </section>
         <section id="result" class="hidden">
             <h2>Seu IMC</h2>
-            <p>Seu IMC é igual a <strong id="imcElement"></strong>. De acordo com a classificação da OMS, <span id="imcClassElement"></span>, já que o peso ideal de uma pessoa com <span id="suaAltura"></span> metro(s) estaria entre <span id="pesoIdealMin"></span> e <span id="pesoIdealMax"></span> kilos.</p>
-            <p>É importante notar que o IMC não distingue entre massa muscular e massa gorda, o que significa que pessoas muito musculosas podem ter um IMC elevado, mas não necessariamente têm excesso de gordura corporal.</p>
-            <p>Além disso, o IMC pode não ser um indicador preciso de saúde para todos os grupos étnicos. Para um diagnóstico e orientação precisos sobre o peso, é recomendado procurar um profissional de saúde.</p>
-            <!-- Calc again is a button to reload the page -->
+            <p>Seu IMC é igual a <strong id="imcElement"></strong>. De acordo com a classificação da OMS, <strong id="imcClassElement"></strong>, já que o peso ideal de uma pessoa com <span id="suaAltura"></span> metro(s) estaria entre <span id="pesoIdealMin"></span> e <span id="pesoIdealMax"></span> kilos.</p>
+            <p>É importante notar que <strong>o IMC não distingue entre massa muscular e massa gorda</strong>, o que significa que pessoas muito musculosas podem ter um IMC elevado, mas não necessariamente têm excesso de gordura corporal. Além disso, o IMC pode não ser um indicador preciso de saúde para todos os grupos étnicos.</p>
+            <p>Para um diagnóstico e orientação precisos sobre o peso, <strong>é recomendado procurar um profissional de saúde</strong>.</p>
             <div id="divButtonReset"><button id="buttonReset" type="reset" title="Calcular novamente">Calcular</button></div>
         </section>
         <section id="class">
