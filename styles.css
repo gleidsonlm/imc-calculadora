@@ -14,6 +14,8 @@
   --color-notice: rgb(241, 196, 15);
   --color-warning: rgb(243, 156, 18);
   --color-alert: rgb(231, 76, 60);
+  --color-white: #fdfdfd;
+  --color-black: #0d0d0d;
 }
 
 body {
@@ -68,7 +70,6 @@ button {
   width: fit-content;
 }
 input {
-  min-width: 5em;
   box-shadow: 0.25em 0.25em var(--color-buttonbg);
 }
 button {
@@ -79,6 +80,7 @@ button {
   cursor: pointer;
   text-decoration: none;
   transition: box-shadow 0.3s ease-in-out;
+  font-size: 1.2em;
 }
 
 button:hover {
@@ -112,10 +114,12 @@ li {
 .warning,
 .alert {
   padding: 0.25em;
+  border: 1px solid var(--color-white);
   border-radius: 1em;
-  color: white;
   text-align: center;
   font-weight: bold;
+  color: var(--color-black);
+  font-shadow: 1em var(--color-white);
 }
 
 .log {
