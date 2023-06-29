@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header id="imc"></header>
+    <header id="bmi"></header>
     <main>
         <section id="intro">
             <h1 class="title">Índice de Massa Corporal (IMC)</h1>
@@ -17,37 +17,37 @@
             <h2>Calcule o seu IMC</h2>
             <form id="formCalc">
                 <fieldset>
-                    <label for="peso">1. Seu Peso (em kilogramas):</label>
-                    <input type="number" step="any" name="peso" id="peso" placeholder="Ex: 75" maxlength="3"required>
+                    <label for="weight">1. Seu Peso (em kilogramas):</label>
+                    <input type="number" step="any" name="weight" id="weight" placeholder="Ex: 75" maxlength="3"required>
                 </fieldset>
                 <fieldset>
-                    <label for="altura">2. Sua Altura (em metros):</label>
-                    <input type="number" step="any" name="altura" id="altura" placeholder="Ex: 1.75" maxlength="5"required>
+                    <label for="height">2. Sua Altura (em metros):</label>
+                    <input type="number" step="any" name="height" id="height" placeholder="Ex: 1.75" maxlength="5"required>
                 </fieldset>
                 <fieldset class="fieldsetButton">
                     <button type="submit" id="calcular">Calcular</button> 
                 </fieldset>
                 <fieldset class="fieldsetRadio">
-                    <input type="radio" id="imc1" name="imc" value="imc1" checked />
-                    <label for="imc1">IMC1 = Peso / ( Altura * Altura )</label>
+                    <input type="radio" id="bmi1" name="bmi" value="bmi1" checked />
+                    <label for="bmi1">IMC1 = Peso / ( Altura * Altura )</label>
                     
-                    <input type="radio" id="imc2" name="imc" value="imc2" />
-                    <label for="imc2">IMC2 = (1,3 * Peso) / ( Altura ** 2.5 )</label>
+                    <input type="radio" id="bmi2" name="bmi" value="bmi2" />
+                    <label for="bmi2">IMC2 = (1,3 * Peso) / ( Altura ** 2.5 )</label>
                 </fieldset>
             </form>
         </section>
         <section id="result" class="hidden">
             <h2>Resultado do seu IMC</h2>
-            <p>Seu IMC é igual a <strong id="imcElement"></strong>. De acordo com a classificação da OMS, <strong id="imcClassElement"></strong>, já que o peso ideal de uma pessoa com <span id="suaAltura"></span> metro(s) estaria entre <span id="pesoIdealMin"></span> e <span id="pesoIdealMax"></span> kilos.</p>
+            <p>Seu IMC é igual a <strong id="bmiElement"></strong>. De acordo com a classificação proposta pela OMS, <strong id="bmiClassificationElement"></strong>. Segundo essa classificação, o peso ideal de uma pessoa com <span id="heightElement"></span> metro(s) estaria entre <span id="idealWeightMin"></span> e <span id="idealWeightMax"></span> kilos.</p>
             <p>É importante notar que <strong>o IMC não distingue entre massa muscular e massa gorda</strong>, o que significa que pessoas muito musculosas podem ter um IMC elevado, mas não necessariamente têm excesso de gordura corporal. Além disso, o IMC pode não ser um indicador preciso de saúde para todos os grupos étnicos.</p>
-            <p>Para um diagnóstico e orientação precisos sobre o peso, <strong>é recomendado procurar um profissional de saúde</strong>.</p>
+            <p>Para um diagnóstico e orientação precisos sobre o seu peso ideal, <strong>você deve procurar um profissional de saúde</strong>.</p>
             <div id="divButtonReset"><button id="buttonReset" type="reset" title="Calcular novamente">Calcular</button></div>
         </section>
         <section id="class">
             <h2>IMC e Classificação</h2>
-            <p>O Índice de Massa Corporal (IMC) é uma medida usada para avaliar se uma pessoa está dentro de um peso saudável em relação à sua altura. Os índices do IMC são classificados da seguinte maneira, de acordo com a Organização Mundial da Saúde:</p>
+            <p>Os índices do IMC são classificados da seguinte maneira, de acordo com a Organização Mundial da Saúde:</p>
             <ul class="list-disc list-inside">
-                <li class="notice">Abaixo do peso: IMC menor que 18,5</li>
+                <li class="notice">Abaixo do weight: IMC menor que 18,5</li>
                 <li class="log">Peso ideal: IMC entre 18,5 e 24,9</li>
                 <li class="notice">Sobrepeso: IMC entre 25 e 29,9</li>
                 <li class="warning">Obesidade Grau I: IMC entre 30 e 34,9</li>
