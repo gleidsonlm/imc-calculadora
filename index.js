@@ -5,17 +5,23 @@ document.getElementById('buttonReset').addEventListener('click', resetAll);
 
 // calcularIMC function receives the "peso" and "altura" values and calculates the BMI
 function calcularIMC(event) {
-    event.preventDefault();
     const peso = document.getElementById("peso").value;
     const altura = document.getElementById("altura").value;
 
+    if(peso === NaN || altura === NaN) {
+        alert("Por favor, preencha todos os campos");
+        return resetAll();
+    }
+
+    event.preventDefault();
+
     let imc;
     if (document.getElementById("imc1").checked) {
-        imc = peso / (altura * altura);
+        imc = peso / Math.pow(altura, 2);
     } else if (document.getElementById("imc2").checked) {
         imc = (1.3 * peso) / Math.pow(altura, 2.5);
     }
-    
+
     const imcFixed = imc.toFixed(2);
     const imcElement = document.getElementById("imcElement");
     imcElement.innerText = imcFixed;
@@ -25,25 +31,30 @@ function calcularIMC(event) {
 
 // classificarIMC function receives the BMI value and classifies it
 function classificarIMC(imc) {
-    let classification = "";
-    
-    if (imc < 18.5) {
-        classification = "você pode estar abaixo do peso ideal";
-    } else if (imc < 24.9) {
-        classification = "você pode estar no peso ideal";
-    } else if (imc < 29.9) {
-        classification = "você pode estar em sobrepeso";
-    } else if (imc < 34.9) {
-        classification = "você pode estar em obesidade grau 1";
-    } else if (imc < 39.9) {
-        classification = "você pode estar em obesidade grau 2";
-    } else {
-        classification = "você pode estar em obesidade grau 3";
+    const imcClassElement = document.getElementById("imcClassElement");
+    const imcClassLibrary = {
+        subpeso : "você pode estar abaixo do peso ideal",
+        pesoIdeal : "você pode estar no peso ideal",
+        sobrepeso : "você pode estar em sobrepeso",
+        obesidade1 : "você pode estar em obesidade grau 1",
+        obesidade2 : "você pode estar em obesidade grau 2",
+        obesidade3 : "você pode estar em obesidade grau 3"
     }
     
-    const imcClassElement = document.getElementById("imcClassElement");
-    imcClassElement.innerText = classification;
-
+    if (imc < 18.5) {
+        imcClassElement.innerText = imcClassLibrary.subpeso;
+    } else if (imc < 24.9) {
+        imcClassElement.innerText = imcClassLibrary.pesoIdeal;
+    } else if (imc < 29.9) {
+        imcClassElement.innerText = imcClassLibrary.sobrepeso;
+    } else if (imc < 34.9) {
+        imcClassElement.innerText = imcClassLibrary.obesidade1;
+    } else if (imc < 39.9) {
+        imcClassElement.innerText = imcClassLibrary.obesidade2;
+    } else {
+        imcClassElement.innerText = imcClassLibrary.obesidade3;
+    }
+    
     decorateClassificationBackground(imc);
 }
 
@@ -74,9 +85,15 @@ function calcularPesoIdeal() {
     const elementoSuaAltura = document.getElementById("suaAltura");
     elementoSuaAltura.innerText = altura;
 
-    const pesoIdealMin = 18.5 * (altura * altura);
-    const pesoIdealMax = 24.9 * (altura * altura);
-    
+    let pesoIdealMin, pesoIdealMax;
+    if (document.getElementById("imc1").checked) {
+        pesoIdealMin = 18.5 * Math.pow(altura, 2);
+        pesoIdealMax = 25 * Math.pow(altura, 2);
+    } else if (document.getElementById("imc2").checked) {
+        pesoIdealMin = (18.5 / 1.3) * Math.pow(altura, 2.5);
+        pesoIdealMax = (25 / 1.3) * Math.pow(altura, 2.5);
+    }        
+
     const elementoPesoIdealMin = document.getElementById("pesoIdealMin");
     elementoPesoIdealMin.innerText = Math.floor(pesoIdealMin);
     

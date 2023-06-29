@@ -16,6 +16,8 @@
   --color-alert: rgb(231, 76, 60);
   --color-white: #fdfdfd;
   --color-black: #0d0d0d;
+  --color-inactive: #bfbfbf;
+  --color-active: #007bff;
 }
 
 body {
@@ -44,9 +46,10 @@ section {
 }
 
 form {
-  border: 1px solid var(--color-text);
+  border: 1px solid var(--color-white);
+  border-radius: 0.25em;
   width: fit-content;
-  box-shadow: 0.25em 0.25em var(--color-main-bg);
+  box-shadow: 0.125em 0.125em var(--color-main-bg);
 }
 
 fieldset {
@@ -75,11 +78,43 @@ button {
 }
 
 input[type="number"] {
-  box-shadow: 0.25em 0.25em var(--color-main-bg);
+  box-shadow: 0.125em 0.125em var(--color-main-bg);
 }
 
 input[type="radio"] {
   min-width: 0em;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  position: relative;
+  padding-left: 25px; /* adjust as needed */
+  cursor: pointer;
+}
+
+input[type="radio"] + label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.75em; /* adjust as needed */
+  height: 0.75em; /* adjust as needed */
+  border-radius: 50%;
+  background-color: var(--color-inactive);
+}
+
+input[type="radio"]:checked + label::before {
+  background-color: var(--color-active);
+}
+
+input[type="radio"] + label {
+  font-size: 0.75em;
+}
+input[type="radio"]:checked + label {
+  color: var(--color-active);
 }
 
 input#peso,
@@ -95,19 +130,22 @@ input#altura::after {
 button {
   color: white;
   background-color: var(--color-button);
-  box-shadow: 0.25em 0.25em var(--color-main-bg);
+  box-shadow: 0.125em 0.125em var(--color-main-bg);
   display: inline-block;
   cursor: pointer;
   text-decoration: none;
-  transition: box-shadow 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-  box-shadow: 2.5em var(--color-main-bg);
+  background-color: var(--color-white);
+  color: var(--color-button);
+  box-shadow: 0.125em 0.125em var(--color-button);
 }
 
 button:active {
-  box-shadow: 2.5em var(--color-main-bg);
+  background-color: var(--color-section-bg);
+  box-shadow: 0.125em 0.125em var(--color-button);
 }
 
 .fieldsetButton,
@@ -134,7 +172,6 @@ li {
 .warning,
 .alert {
   padding: 0.25em;
-  border: 1px solid var(--color-white);
   border-radius: 1em;
   text-align: center;
   font-weight: bold;
